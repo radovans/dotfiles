@@ -1,0 +1,48 @@
+# Secrets — never commit these
+.env
+*.env.local
+*.pem
+*.key
+id_rsa
+id_ed25519
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+Icon
+
+# Editors
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Python (tools/)
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+dist/
+build/
+*.egg-info/
+.pytest_cache/
+
+# Node (tools/)
+node_modules/
+npm-debug.log*
+yarn-error.log*
+.npm
+
+# Logs
+*.log
+logs/
+
+# OS
+Thumbs.db
