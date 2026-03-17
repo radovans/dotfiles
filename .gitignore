@@ -1,3 +1,6 @@
+# Homebrew
+Brewfile.lock.json
+
 # Secrets — never commit these
 .env
 *.env.local

@@ -7,8 +7,8 @@ ZSH_THEME="robbyrussell"
 # History timestamp format
 HIST_STAMPS="dd/mm/yyyy"
 
-# Use dotfiles dir as ZSH_CUSTOM so plugins/themes inside it are picked up
-export DOTFILES="$HOME/Developer/personal/repo/dotfiles"
+# Resolve dotfiles location from this file's real path (works wherever repo is cloned)
+export DOTFILES="$(dirname "$(readlink "$HOME/.zshrc")")"
 ZSH_CUSTOM="$DOTFILES"
 
 # Plugins

@@ -6,61 +6,76 @@ Personal Mac setup — everything needed to rebuild from scratch on a new machin
 
 | Directory | Contents |
 |-----------|----------|
-| `macos/` | System preferences, Homebrew `Brewfile` |
-| `shell/` | `.zshrc`, aliases, exports, prompt config |
-| `claude/` | Claude Code skills and configuration |
+| `macos/` | `Brewfile`, `defaults.sh` (system preferences) |
+| `shell/` | `.zshrc`, `aliases.sh`, `exports.sh` |
+| `git/` | `.gitconfig`, `.gitignore_global` |
+| `claude/` | Claude Code skills |
+| `scripts/` | Individual install steps + `update.sh` |
 | `tools/` | Custom programs |
-| `apps/` | App-specific configs (IntelliJ IDEA, etc.) |
+| `apps/` | App-specific config files |
 
 ## Fresh Mac setup
 
-### 1. Prerequisites
+Clone the repo anywhere and run the installer:
 
 ```bash
-# Install Xcode Command Line Tools
-xcode-select --install
-
-# Install Homebrew
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-```
-
-### 2. Clone & bootstrap
-
-```bash
-git clone https://github.com/<your-username>/dotfiles.git ~/dotfiles
-cd ~/dotfiles
+git clone https://github.com/radovansinko/dotfiles.git ~/Developer/personal/repo/dotfiles
+cd ~/Developer/personal/repo/dotfiles
 ./install.sh
 ```
 
-That's it. The script handles the rest.
+The script handles everything in order:
+
+| Step | What it does |
+|------|-------------|
+| 1 | Xcode Command Line Tools |
+| 2 | Oh My Zsh |
+| 3 | Homebrew + all packages from `macos/Brewfile` |
+| 4 | App Store apps via `mas` |
+| 5 | Shell config symlinks (`.zshrc`, aliases, exports) |
+| 6 | Git config + global gitignore |
+| 7 | Claude Code skills |
+| 8 | macOS system defaults |
+| 9 | Node via nvm |
+| 10 | `~/Developer` folder structure |
+| 11 | `.env` file check |
+
+## Keeping up to date
+
+After the initial setup, run this anytime to pull changes and re-apply:
+
+```bash
+dotfiles-update
+# or directly:
+bash scripts/update.sh
+```
 
 ## Manual steps (post-install)
 
-Some things can't be automated. After running `install.sh`:
+Some things can't be automated:
 
 - Sign in to App Store, iCloud, and other services
-- Restore any secrets from your password manager into `.env`
-- Configure SSH keys (`~/.ssh/`) — generate new ones or restore from backup
-- Set up any app licenses that require manual activation
+- Restore secrets from your password manager into `.env`
+- Configure SSH keys (`~/.ssh/`)
+- Activate any app licenses
 
 ## Environment variables
 
-Copy `.env.example` to `.env` and fill in your values:
-
 ```bash
 cp .env.example .env
+# fill in your values
 ```
 
 ## Structure
 
 ```
 dotfiles/
-├── README.md              # This file
-├── .env.example           # Environment variable template
-├── install.sh             # Bootstrap script
+├── install.sh
+├── .env.example
+├── .gitignore
 │
 ├── macos/
-│   ├── Brewfile           # Homebrew packages, casks, and MAS apps
+│   ├── Brewfile           # Homebrew packages, casks, fonts
 │   └── defaults.sh        # macOS system preference overrides
 │
 ├── shell/
@@ -68,12 +83,30 @@ dotfiles/
 │   ├── aliases.sh
 │   └── exports.sh
 │
+├── git/
+│   ├── .gitconfig
+│   └── .gitignore_global
+│
+├── scripts/
+│   ├── lib.sh             # shared colors + helpers
+│   ├── xcode.sh
+│   ├── ohmyzsh.sh
+│   ├── homebrew.sh
+│   ├── mas.sh             # App Store apps
+│   ├── shell.sh
+│   ├── git.sh
+│   ├── claude.sh
+│   ├── macos.sh
+│   ├── node.sh
+│   ├── dirs.sh
+│   ├── env.sh
+│   └── update.sh          # pull + re-apply
+│
 ├── claude/
-│   └── skills/            # Custom Claude Code skills
+│   └── skills/
 │
-├── tools/                 # Custom programs and scripts
-│
-└── apps/                  # App-specific config files
+├── tools/
+└── apps/
 ```
 
 ## License

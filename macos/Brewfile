@@ -12,6 +12,8 @@ brew "coreutils"
 brew "git"
 # GNU grep (macOS ships with BSD grep)
 brew "grep"
+# Mac App Store CLI
+brew "mas"
 # structural code search
 brew "ast-grep"
 # GitHub CLI
