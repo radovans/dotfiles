@@ -1,0 +1,6 @@
+[user]
+    email = radovan.sinko@gmail.com
+    name = Radovan Šinko
+
+[core]
+    excludesfile = ~/.gitignore_global
