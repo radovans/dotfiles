@@ -1,6 +1,9 @@
 # Homebrew
 Brewfile.lock.json
 
+# Claude
+.claude/
+
 # Secrets — never commit these
 .env
 *.env.local

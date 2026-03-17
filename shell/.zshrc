@@ -1,25 +1,17 @@
-# Path to your Oh My Zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
+# Resolve dotfiles location from this symlink's real path
+export DOTFILES="$(dirname "$(dirname "$(readlink "$HOME/.zshrc")")")"
 
 # Load central config
 source "$DOTFILES/config.sh"
 
-# Theme
-
-# History timestamp format
+# ── Oh My Zsh ─────────────────────────────────────────────────────────────────
+export ZSH="$HOME/.oh-my-zsh"
+ZSH_THEME="$ZSH_THEME"
 HIST_STAMPS="dd/mm/yyyy"
-
-# Resolve dotfiles location from this file's real path (works wherever repo is cloned)
-export DOTFILES="$(dirname "$(readlink "$HOME/.zshrc")")"
 ZSH_CUSTOM="$DOTFILES"
 
-# Plugins
-plugins=(
-    git
-    zsh-completions
-    zsh-autosuggestions
-    zsh-syntax-highlighting
-)
+# Only include plugins that are bundled with Oh My Zsh
+plugins=(git)
 
 source "$ZSH/oh-my-zsh.sh"
 
@@ -31,7 +23,7 @@ export LANG=en_US.UTF-8
 [ -f "$HOME/.aliases" ] && source "$HOME/.aliases"
 [ -f "$HOME/.exports" ] && source "$HOME/.exports"
 
-# ── Homebrew completions ──────────────────────────────────────────────────────
+# ── Homebrew completions + zsh-completions ────────────────────────────────────
 if type brew &>/dev/null; then
     FPATH="$(brew --prefix)/share/zsh-completions:$FPATH"
     autoload -Uz compinit

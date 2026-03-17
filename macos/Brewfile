@@ -105,7 +105,7 @@ cask "obs"
 # kill processes on a port from the menu bar
 cask "portkiller"
 # quit all open apps at once
-cask "quit-all"
+# cask "quit-all"
 # local file sharing
 cask "localsend"
 
@@ -114,9 +114,6 @@ cask "font-lato"
 cask "font-open-sans"
 cask "font-roboto"
 cask "font-source-code-pro"
-cask "font-source-code-pro-for-powerline"
-cask "font-source-sans-pro"
-cask "font-source-serif-pro"
 
 # ── VS Code extensions ────────────────────────────────────────────────────────
 vscode "redhat.vscode-xml"

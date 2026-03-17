@@ -24,7 +24,6 @@ Before running, review `config.sh` — single place to change:
 | `JAVA_VERSION` | Active Java version |
 | `NODE_VERSION` | Node version installed via nvm |
 | `MARKETPLACE_REPO` | Claude skills marketplace repo |
-| `MARKETPLACE_DIR` | Local clone path for the marketplace |
 
 ## Fresh Mac setup
 

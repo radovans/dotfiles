@@ -16,5 +16,4 @@ JAVA_VERSION="25"
 NODE_VERSION="v22.14.0"
 
 # ── Claude marketplace ────────────────────────────────────────────────────────
-MARKETPLACE_REPO="https://github.com/radovans/claude-marketplace.git"
-MARKETPLACE_DIR="$HOME/Developer/personal/repo/claude-marketplace"
+MARKETPLACE_REPO="https://github.com/radovans/claude-marketplace"

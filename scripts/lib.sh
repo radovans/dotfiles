@@ -22,7 +22,10 @@ symlink() {
         warn "Skipping $dst — source not found: $src"
         return 0
     fi
-    if [ -e "$dst" ] && [ ! -L "$dst" ]; then
+    if [ -L "$dst" ]; then
+        # Remove existing symlink so ln -sf doesn't create inside the target
+        rm "$dst"
+    elif [ -e "$dst" ]; then
         warn "Backing up existing $dst -> ${dst}.bak"
         mv "$dst" "${dst}.bak"
     fi
