@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 # Shared colors and helper functions — source this, don't run it directly.
 
+# Load central config (DOTFILES must be set before sourcing lib.sh)
+source "$DOTFILES/config.sh"
+
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'

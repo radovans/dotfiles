@@ -1,8 +1,10 @@
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
+# Load central config
+source "$DOTFILES/config.sh"
+
 # Theme
-ZSH_THEME="robbyrussell"
 
 # History timestamp format
 HIST_STAMPS="dd/mm/yyyy"

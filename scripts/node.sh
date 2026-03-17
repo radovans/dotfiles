@@ -2,8 +2,6 @@
 set -euo pipefail
 DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 source "$DOTFILES/scripts/lib.sh"
-
-NODE_VERSION="v22.14.0"
 export NVM_DIR="$HOME/.nvm"
 
 NVM_PREFIX="$(brew --prefix nvm 2>/dev/null || true)"

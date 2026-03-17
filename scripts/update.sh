@@ -24,8 +24,8 @@ echo -e "${CYAN}━━━ Git config ━━━━━━━━━━━━━━�
 bash "$DOTFILES/scripts/git.sh"
 echo ""
 
-echo -e "${CYAN}━━━ Claude skills ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-bash "$DOTFILES/scripts/claude.sh"
+echo -e "${CYAN}━━━ Claude marketplace ━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+bash "$DOTFILES/scripts/marketplace.sh"
 echo ""
 
 echo -e "${CYAN}━━━ IntelliJ IDEA ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"

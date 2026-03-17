@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 # macOS defaults — run via install.sh or standalone: bash macos/defaults.sh
 set -euo pipefail
+DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+source "$DOTFILES/config.sh"
 
 # Close System Preferences / System Settings to prevent overriding settings
 osascript -e 'tell application "System Preferences" to quit' 2>/dev/null || true
@@ -16,10 +18,10 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 # System                                                                      #
 ###############################################################################
 
-sudo scutil --set ComputerName  "radovan-mac"
-sudo scutil --set HostName      "radovan-mac"
-sudo scutil --set LocalHostName "radovan-mac"
-sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "radovan-mac"
+sudo scutil --set ComputerName  "$COMPUTER_NAME"
+sudo scutil --set HostName      "$COMPUTER_NAME"
+sudo scutil --set LocalHostName "$COMPUTER_NAME"
+sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "$COMPUTER_NAME"
 
 ###############################################################################
 # Finder                                                                      #
