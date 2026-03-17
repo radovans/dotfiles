@@ -1,0 +1,111 @@
+# Brewfile — run `brew bundle` to install everything
+
+# ── Taps ──────────────────────────────────────────────────────────────────────
+tap "productdevbook/tap"
+tap "tldev/tap"
+
+# ── CLI tools ─────────────────────────────────────────────────────────────────
+# newer bash (macOS ships with bash 3)
+brew "bash"
+# GNU core utilities (macOS ships outdated BSD versions)
+brew "coreutils"
+brew "git"
+# GNU grep (macOS ships with BSD grep)
+brew "grep"
+# structural code search
+brew "ast-grep"
+# GitHub CLI
+brew "gh"
+# Fly.io CLI
+brew "flyctl"
+
+# ── Shell enhancements ────────────────────────────────────────────────────────
+brew "zsh-autosuggestions"
+brew "zsh-completions"
+brew "zsh-syntax-highlighting"
+
+# ── Java / JVM tooling ────────────────────────────────────────────────────────
+brew "gradle"
+brew "maven"
+
+# ── Node ──────────────────────────────────────────────────────────────────────
+brew "nvm"
+brew "yarn"
+
+# ── File transfer ─────────────────────────────────────────────────────────────
+brew "lftp"
+
+# ── PDF / OCR ─────────────────────────────────────────────────────────────────
+brew "tesseract"
+brew "tesseract-lang"
+brew "ocrmypdf"
+brew "poppler"
+
+# ── Password & security ───────────────────────────────────────────────────────
+cask "1password"
+cask "1password-cli"
+
+# ── Productivity ──────────────────────────────────────────────────────────────
+# better cmd-tab switcher
+cask "alt-tab"
+# menu bar organiser
+cask "bartender"
+# hold ⌘ to see shortcuts
+cask "cheatsheet"
+# screenshot tool
+cask "cleanshot"
+# blue light filter
+cask "flux-app"
+# independent scroll direction per device
+cask "scroll-reverser"
+
+# ── IDEs & editors ────────────────────────────────────────────────────────────
+cask "cursor"
+cask "visual-studio-code"
+cask "sublime-text"
+cask "jetbrains-toolbox"
+cask "antigravity"
+
+# ── Development ───────────────────────────────────────────────────────────────
+cask "gitkraken"
+cask "docker-desktop"
+cask "dbeaver-community"
+cask "postman"
+cask "mockoon"
+
+# ── JDKs ──────────────────────────────────────────────────────────────────────
+# latest LTS
+cask "temurin"
+cask "temurin@21"
+cask "temurin@17"
+
+# ── AI tools ──────────────────────────────────────────────────────────────────
+cask "claude"
+cask "claude-code"
+
+# ── Browsers ──────────────────────────────────────────────────────────────────
+cask "google-chrome"
+
+# ── Cloud storage ─────────────────────────────────────────────────────────────
+cask "google-drive"
+
+# ── Communication ─────────────────────────────────────────────────────────────
+cask "slack"
+cask "microsoft-teams"
+cask "microsoft-auto-update"
+
+# ── Media ─────────────────────────────────────────────────────────────────────
+cask "spotify"
+cask "vlc"
+cask "obs"
+
+# ── Utilities ─────────────────────────────────────────────────────────────────
+# kill processes on a port from the menu bar
+cask "portkiller"
+# quit all open apps at once
+cask "quit-all"
+# local file sharing
+cask "localsend"
+
+# ── VS Code extensions ────────────────────────────────────────────────────────
+vscode "redhat.vscode-xml"
