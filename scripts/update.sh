@@ -28,6 +28,10 @@ echo -e "${CYAN}━━━ Claude skills ━━━━━━━━━━━━━�
 bash "$DOTFILES/scripts/claude.sh"
 echo ""
 
+echo -e "${CYAN}━━━ IntelliJ IDEA ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+bash "$DOTFILES/scripts/idea.sh"
+echo ""
+
 # Update Homebrew packages
 echo -e "${CYAN}━━━ Homebrew ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 info "Updating Homebrew..."

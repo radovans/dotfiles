@@ -52,6 +52,7 @@ STEPS=(
     "Shell config:shell.sh"
     "Git:git.sh"
     "Claude skills:claude.sh"
+    "IntelliJ IDEA:idea.sh"
     "macOS defaults:macos.sh"
     "Node:node.sh"
     "Directory structure:dirs.sh"

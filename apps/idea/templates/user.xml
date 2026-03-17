@@ -1,0 +1,3 @@
+<templateSet group="user">
+  <template name="@a" value="@author Sinko Radovan" description="author" toReformat="false" toShortenFQNames="true" />
+</templateSet>
