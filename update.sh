@@ -1,8 +1,35 @@
 #!/usr/bin/env bash
 # Pull latest dotfiles and re-apply — safe to run anytime.
+# Usage: ./update.sh [--help]
 set -euo pipefail
-DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source "$DOTFILES/scripts/lib.sh"
+
+show_help() {
+    echo -e "${BLUE}╔══════════════════════════════════════════════╗${NC}"
+    echo -e "${BLUE}║           Dotfiles Updater                   ║${NC}"
+    echo -e "${BLUE}╚══════════════════════════════════════════════╝${NC}"
+    echo ""
+    echo -e "${CYAN}USAGE:${NC}"
+    echo "  ./update.sh [OPTION]"
+    echo ""
+    echo -e "${CYAN}OPTIONS:${NC}"
+    echo "  -h, --help    Show this help message"
+    echo ""
+    echo -e "${CYAN}WHAT IT DOES:${NC}"
+    echo "  1. Pulls latest changes from git"
+    echo "  2. Re-applies shell config symlinks"
+    echo "  3. Re-applies git config symlinks"
+    echo "  4. Updates Claude marketplace skills"
+    echo "  5. Re-applies IntelliJ IDEA settings"
+    echo "  6. Runs brew bundle + upgrade + cleanup"
+    echo ""
+}
+
+if [[ "${1:-}" == "-h" || "${1:-}" == "--help" || "${1:-}" == "help" ]]; then
+    show_help
+    exit 0
+fi
 
 echo -e "${BLUE}╔══════════════════════════════════════════════╗${NC}"
 echo -e "${BLUE}║           Dotfiles Updater                   ║${NC}"
