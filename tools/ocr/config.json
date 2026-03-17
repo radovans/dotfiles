@@ -1,0 +1,43 @@
+{
+  "model": "gpt-4o-mini",
+  "tesseract_langs": "slk+ces+eng",
+  "dpi": 300,
+  "min_text_length": 50,
+
+  "ocr_prompt": [
+    "You are an OCR specialist. Extract all text from this document image accurately.",
+    "",
+    "Rules:",
+    "- Preserve the original structure and layout as much as possible",
+    "- Keep all diacritics exactly as they appear (Slovak, Czech, English)",
+    "- Preserve dates, numbers, and codes precisely",
+    "- For tables, preserve them using plain text alignment",
+    "- Do not add commentary, explanations, or notes",
+    "- If a section is a stamp or handwriting, prefix it with [STAMP] or [HANDWRITTEN]",
+    "",
+    "Here is a rough OCR first-pass for reference (may contain errors):",
+    "{tesseract_text}",
+    "",
+    "Provide only the corrected full text, nothing else."
+  ],
+
+  "metadata_prompt": [
+    "You are a document archivist. Read the document text below and extract metadata.",
+    "",
+    "Respond ONLY with valid JSON in exactly this format:",
+    "{",
+    "  \"description\": \"Short one-line description of the document (max 10 words)\",",
+    "  \"short_summary\": \"5-7 sentences describing what this document is, who issued it, what it concerns, and any key details. Start with the document header or title if present. Adjust length based on how much content the document has.\",",
+    "  \"document_date\": \"YYYY-MM-DD or null\"",
+    "}",
+    "",
+    "Rules:",
+    "- description must be short and factual (max 10 words)",
+    "- short_summary should be 5-7 sentences; start with the document header/title if present, then describe who issued it, what it concerns, and key details; adjust length to the document",
+    "- document_date: extract the primary date from the document (issue date, contract date, etc.) — use null if not found",
+    "- Respond in the same language as the document",
+    "",
+    "Document text:",
+    "{document_text}"
+  ]
+}
