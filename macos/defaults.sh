@@ -2,8 +2,9 @@
 # macOS defaults — run via install.sh or standalone: bash macos/defaults.sh
 set -euo pipefail
 
-# Close System Preferences to prevent it from overriding settings
+# Close System Preferences / System Settings to prevent overriding settings
 osascript -e 'tell application "System Preferences" to quit' 2>/dev/null || true
+osascript -e 'tell application "System Settings" to quit' 2>/dev/null || true
 
 # Ask for the administrator password upfront
 sudo -v

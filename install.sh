@@ -71,7 +71,7 @@ for entry in "${STEPS[@]}"; do
         | cut -c1-54  # keep consistent width
     bash "$SCRIPTS/$script"
     echo ""
-    (( i++ ))
+    i=$((i + 1))
 done
 
 echo -e "${GREEN}╔══════════════════════════════════════════════╗${NC}"

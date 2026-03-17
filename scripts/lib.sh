@@ -15,6 +15,10 @@ error()   { echo -e "${RED}  ✗${NC} $*"; }
 
 symlink() {
     local src="$1" dst="$2"
+    if [ ! -e "$src" ]; then
+        warn "Skipping $dst — source not found: $src"
+        return 0
+    fi
     if [ -e "$dst" ] && [ ! -L "$dst" ]; then
         warn "Backing up existing $dst -> ${dst}.bak"
         mv "$dst" "${dst}.bak"

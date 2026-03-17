@@ -6,9 +6,10 @@ source "$DOTFILES/scripts/lib.sh"
 NODE_VERSION="v22.14.0"
 export NVM_DIR="$HOME/.nvm"
 
-if [ -s "$(brew --prefix nvm)/nvm.sh" ]; then
+NVM_PREFIX="$(brew --prefix nvm 2>/dev/null || true)"
+if [ -n "$NVM_PREFIX" ] && [ -s "$NVM_PREFIX/nvm.sh" ]; then
     # shellcheck source=/dev/null
-    source "$(brew --prefix nvm)/nvm.sh"
+    source "$NVM_PREFIX/nvm.sh"
     info "Installing Node $NODE_VERSION..."
     nvm install "$NODE_VERSION"
     nvm use "$NODE_VERSION"
