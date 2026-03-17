@@ -29,7 +29,8 @@ show_help() {
     echo "  6. Claude skills"
     echo "  7. macOS defaults"
     echo "  8. Node via nvm"
-    echo "  9. Environment file check"
+    echo "  9. Directory structure (~/Developer/...)"
+    echo " 10. Environment file check"
     echo ""
     echo -e "${CYAN}PREREQUISITES:${NC}"
     echo "  • macOS"
@@ -51,6 +52,7 @@ STEPS=(
     "Claude skills:claude.sh"
     "macOS defaults:macos.sh"
     "Node:node.sh"
+    "Directory structure:dirs.sh"
     "Environment:env.sh"
 )
 TOTAL="${#STEPS[@]}"
