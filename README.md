@@ -9,14 +9,24 @@ Personal Mac setup — everything needed to rebuild from scratch on a new machin
 | `macos/` | `Brewfile`, `defaults.sh` (system preferences) |
 | `shell/` | `.zshrc`, `aliases.sh`, `exports.sh` |
 | `git/` | `.gitconfig`, `.gitignore_global` |
-| `claude/` | Claude Code skills |
-| `scripts/` | Individual install steps + `update.sh` |
+| `apps/idea/` | IntelliJ IDEA file templates and live templates |
+| `scripts/` | Individual install steps |
 | `tools/` | Custom programs |
-| `apps/` | App-specific config files |
+
+## Configuration
+
+Before running, review `config.sh` — single place to change:
+
+| Variable | Description |
+|----------|-------------|
+| `COMPUTER_NAME` | Machine hostname |
+| `ZSH_THEME` | Oh My Zsh theme |
+| `JAVA_VERSION` | Active Java version |
+| `NODE_VERSION` | Node version installed via nvm |
+| `MARKETPLACE_REPO` | Claude skills marketplace repo |
+| `MARKETPLACE_DIR` | Local clone path for the marketplace |
 
 ## Fresh Mac setup
-
-Clone the repo anywhere and run the installer:
 
 ```bash
 git clone https://github.com/radovansinko/dotfiles.git ~/Developer/personal/repo/dotfiles
@@ -24,35 +34,42 @@ cd ~/Developer/personal/repo/dotfiles
 ./install.sh
 ```
 
-The script handles everything in order:
+## Running individual steps
 
-| Step | What it does |
-|------|-------------|
-| 1 | Xcode Command Line Tools |
-| 2 | Oh My Zsh |
-| 3 | Homebrew + all packages from `macos/Brewfile` |
-| 4 | App Store apps via `mas` |
-| 5 | Shell config symlinks (`.zshrc`, aliases, exports) |
-| 6 | Git config + global gitignore |
-| 7 | Claude Code skills |
-| 8 | macOS system defaults |
-| 9 | Node via nvm |
-| 10 | `~/Developer` folder structure |
-| 11 | `.env` file check |
+```bash
+./install.sh --list           # list all available steps
+./install.sh --step homebrew  # run a single step by name
+./install.sh --step node
+```
+
+## All steps
+
+| Step | Name | What it does |
+|------|------|-------------|
+| 1 | `xcode` | Xcode Command Line Tools |
+| 2 | `ohmyzsh` | Oh My Zsh |
+| 3 | `homebrew` | Homebrew + all packages from `Brewfile` |
+| 4 | `mas` | App Store apps |
+| 5 | `shell` | Shell config symlinks |
+| 6 | `git` | Git config + global gitignore |
+| 7 | `marketplace` | Claude skills marketplace |
+| 8 | `idea` | IntelliJ IDEA settings |
+| 9 | `macos` | macOS system defaults |
+| 10 | `node` | Node via nvm |
+| 11 | `dirs` | `~/Developer` folder structure |
+| 12 | `env` | `.env` file check |
 
 ## Keeping up to date
 
-After the initial setup, run this anytime to pull changes and re-apply:
-
 ```bash
+./update.sh
+# or via alias:
 dotfiles-update
-# or directly:
-bash scripts/update.sh
 ```
 
-## Manual steps (post-install)
+Pulls latest changes and re-applies symlinks, marketplace skills, and Homebrew packages.
 
-Some things can't be automated:
+## Manual steps (post-install)
 
 - Sign in to App Store, iCloud, and other services
 - Restore secrets from your password manager into `.env`
@@ -70,43 +87,23 @@ cp .env.example .env
 
 ```
 dotfiles/
-├── install.sh
-├── .env.example
-├── .gitignore
-│
+├── install.sh             # Bootstrap — run this on a new Mac
+├── update.sh              # Updater — run anytime after setup
+├── config.sh              # Central config (names, versions, URLs)
 ├── macos/
-│   ├── Brewfile           # Homebrew packages, casks, fonts
-│   └── defaults.sh        # macOS system preference overrides
-│
+│   ├── Brewfile
+│   └── defaults.sh
 ├── shell/
 │   ├── .zshrc
 │   ├── aliases.sh
 │   └── exports.sh
-│
 ├── git/
 │   ├── .gitconfig
 │   └── .gitignore_global
-│
+├── apps/
+│   └── idea/              # IntelliJ IDEA settings
 ├── scripts/
-│   ├── lib.sh             # shared colors + helpers
-│   ├── xcode.sh
-│   ├── ohmyzsh.sh
-│   ├── homebrew.sh
-│   ├── mas.sh             # App Store apps
-│   ├── shell.sh
-│   ├── git.sh
-│   ├── claude.sh
-│   ├── macos.sh
-│   ├── node.sh
-│   ├── dirs.sh
-│   ├── env.sh
-│   └── update.sh          # pull + re-apply
-│
-├── claude/
-│   └── skills/
-│
-├── tools/
-└── apps/
+└── tools/
 ```
 
 ## License
