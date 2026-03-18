@@ -40,16 +40,7 @@ OCR_INBOX_DIR=/path/to/your/inbox
 
 The inbox folder is outside the repo. Processed files are moved to `$OCR_INBOX_DIR/processed/`.
 
-**2. Create virtual environment:**
-
-```bash
-cd tools/ocr
-python3 -m venv venv
-source venv/bin/activate
-pip install pdf2image pytesseract opencv-python numpy requests
-```
-
-**3. Install system dependencies** (once, via Homebrew):
+**2. Install system dependencies** (once, via Homebrew):
 
 ```bash
 brew install tesseract tesseract-lang poppler
@@ -58,10 +49,12 @@ brew install tesseract tesseract-lang poppler
 ## Usage
 
 ```bash
-./run.sh                        # process all PDFs in inbox
-./run.sh /path/to/file.pdf      # process a specific file
-./run.sh --help                 # show help
+./process.sh                        # process all PDFs in inbox
+./process.sh /path/to/file.pdf      # process a specific file
+./process.sh --help                 # show help
 ```
+
+The venv and Python dependencies are created automatically on first run.
 
 ## Configuration
 

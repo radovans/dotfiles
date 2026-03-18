@@ -29,9 +29,9 @@ show_help() {
     echo -e "${BLUE}╚══════════════════════════════════════════════╝${NC}"
     echo ""
     echo -e "${CYAN}USAGE:${NC}"
-    echo "  ./run.sh                  Process all PDFs in inbox"
-    echo "  ./run.sh file.pdf ...     Process specific file(s)"
-    echo "  ./run.sh --help           Show this help message"
+    echo "  ./process.sh                  Process all PDFs in inbox"
+    echo "  ./process.sh file.pdf ...     Process specific file(s)"
+    echo "  ./process.sh --help           Show this help message"
     echo ""
     echo -e "${CYAN}PIPELINE:${NC}"
     echo "  1. Skip files already in \$OCR_INBOX_DIR/processed/"
@@ -44,8 +44,8 @@ show_help() {
     echo "  config.json        Model, DPI, language, prompts"
     echo ""
     echo -e "${CYAN}FIRST-TIME SETUP:${NC}"
-    echo "  python3 -m venv venv && source venv/bin/activate"
-    echo "  pip install pdf2image pytesseract opencv-python numpy requests"
+    echo "  cp ../../.env.example ../../.env  # fill in OPENAI_API_KEY and OCR_INBOX_DIR"
+    echo "  Venv and dependencies are created automatically on first run."
     echo ""
 }
 
@@ -92,10 +92,13 @@ check_prereqs() {
     fi
 
     if [ ! -d "$VENV" ]; then
-        error "Virtual environment not found — run first-time setup:"
-        info  "  python3 -m venv venv && source venv/bin/activate"
-        info  "  pip install pdf2image pytesseract opencv-python numpy requests"
-        ok=false
+        info "Virtual environment not found — creating..."
+        python3 -m venv "$VENV"
+        # shellcheck disable=SC1091
+        source "$VENV/bin/activate"
+        pip install --quiet pdf2image pytesseract opencv-python numpy requests
+        deactivate 2>/dev/null || true
+        success "Virtual environment created and dependencies installed"
     else
         success "Virtual environment"
     fi
