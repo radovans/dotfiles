@@ -35,7 +35,7 @@
     "- description must be short and factual (max 10 words)",
     "- short_summary should be 5-7 sentences; start with the document header/title if present, then describe who issued it, what it concerns, and key details; adjust length to the document",
     "- document_date: extract the primary date from the document (issue date, contract date, etc.) — use null if not found",
-    "- Respond in the same language as the document",
+    "- Always respond in Slovak language regardless of the document language",
     "",
     "Document text:",
     "{document_text}"

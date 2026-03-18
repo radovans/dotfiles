@@ -212,9 +212,6 @@ if [ "$new_count" -eq 0 ]; then
     exit 0
 fi
 
-read -r -p "  Proceed? [Y/n] " confirm || true
-[[ "${confirm:-}" =~ ^[Nn] ]] && { info "Aborted."; exit 0; }
-echo ""
 
 echo -e "${CYAN}━━━ Running OCR pipeline ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 # shellcheck disable=SC1091
