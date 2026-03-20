@@ -16,7 +16,7 @@ alias dt="cd ~/Desktop"
 
 # ── Directories ───────────────────────────────────────────────────────────────
 alias dotfiles="cd $DOTFILES"
-alias dotfiles-update="bash $DOTFILES/scripts/update.sh"
+alias dotfiles-update="bash $DOTFILES/update.sh"
 alias library="cd $HOME/Library"
 alias dev="cd $HOME/Developer"
 

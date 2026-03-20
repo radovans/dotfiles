@@ -1,0 +1,19 @@
+{
+  "statusLine": {
+    "type": "command",
+    "command": "input=$(cat); cwd=$(echo \"$input\" | jq -r '.workspace.current_dir'); branch=$(cd \"$cwd\" && git rev-parse --abbrev-ref HEAD 2>/dev/null); git_dirty=$(cd \"$cwd\" && git diff --quiet 2>/dev/null || echo '*'); git_status=\"\"; if [ -n \"$branch\" ]; then if [ -n \"$git_dirty\" ]; then git_status=$(printf '\\033[33m')\\ git:\\ \\(${branch}${git_dirty}\\)$(printf '\\033[0m'); else git_status=$(printf '\\033[32m')\\ git:\\ \\(${branch}\\)$(printf '\\033[0m'); fi; fi; printf '\\033[36m%s\\033[0m%s' \"$(basename \"$cwd\")\" \"$git_status\""
+  },
+  "permissions": {
+    "allow": [
+      "Bash(gh:*)",
+      "Bash(git:*)",
+      "Bash(grep:*)",
+      "Bash(find:*)",
+      "Bash(open:*)",
+      "Bash(tail:*)",
+      "Bash(wc:*)",
+      "Bash(ls:*)",
+      "Skill(commit)"
+    ]
+  }
+}
