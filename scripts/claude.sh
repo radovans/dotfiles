@@ -6,8 +6,10 @@ source "$DOTFILES/scripts/lib.sh"
 MANAGED="$DOTFILES/apps/claude/managed.json"
 SETTINGS="$HOME/.claude/settings.json"
 
-info "Merging Claude managed settings (statusLine, permissions)..."
+info "Linking Claude statusline script..."
+symlink "$DOTFILES/apps/claude/statusline.sh" "$HOME/.claude/statusline.sh"
 
+info "Merging Claude managed settings (statusLine, permissions)..."
 if [ ! -f "$SETTINGS" ]; then
     cp "$MANAGED" "$SETTINGS"
 else
