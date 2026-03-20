@@ -22,8 +22,9 @@ show_help() {
     echo "  3. Re-applies git config symlinks"
     echo "  4. Updates Claude marketplace skills"
     echo "  5. Re-applies Claude settings symlink"
-    echo "  6. Re-applies IntelliJ IDEA settings"
-    echo "  7. Runs brew bundle + upgrade + cleanup"
+    echo "  6. Re-applies Cursor settings symlinks"
+    echo "  7. Re-applies IntelliJ IDEA settings"
+    echo "  8. Runs brew bundle + upgrade + cleanup"
     echo ""
 }
 
@@ -58,6 +59,10 @@ echo ""
 
 echo -e "${CYAN}━━━ Claude settings ━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 bash "$DOTFILES/scripts/claude.sh"
+echo ""
+
+echo -e "${CYAN}━━━ Cursor ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+bash "$DOTFILES/scripts/cursor.sh"
 echo ""
 
 echo -e "${CYAN}━━━ IntelliJ IDEA ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"

@@ -18,6 +18,7 @@ STEPS=(
     "Git:git.sh"
     "Claude marketplace:marketplace.sh"
     "Claude settings:claude.sh"
+    "Cursor:cursor.sh"
     "IntelliJ IDEA:idea.sh"
     "macOS defaults:macos.sh"
     "Node:node.sh"

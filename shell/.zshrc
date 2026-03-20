@@ -19,9 +19,10 @@ source "$ZSH/oh-my-zsh.sh"
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-# ── Aliases & exports ─────────────────────────────────────────────────────────
+# ── Aliases, exports & secrets ────────────────────────────────────────────────
 [ -f "$HOME/.aliases" ] && source "$HOME/.aliases"
 [ -f "$HOME/.exports" ] && source "$HOME/.exports"
+[ -f "$HOME/.env" ] && source "$HOME/.env"
 
 # ── Homebrew completions + zsh-completions ────────────────────────────────────
 if type brew &>/dev/null; then
