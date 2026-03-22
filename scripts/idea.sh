@@ -17,3 +17,26 @@ symlink "$DOTFILES/apps/idea/fileTemplates" "$IDEA_CONFIG/fileTemplates"
 symlink "$DOTFILES/apps/idea/templates"     "$IDEA_CONFIG/templates"
 
 success "IntelliJ IDEA settings linked"
+
+# ── Plugins ───────────────────────────────────────────────────────────────────
+IDEA_BIN="$HOME/Applications/IntelliJ IDEA Ultimate.app/Contents/MacOS/idea"
+
+if [ ! -x "$IDEA_BIN" ]; then
+    warn "IntelliJ IDEA binary not found — skipping plugin installation"
+    exit 0
+fi
+
+plugins=(
+    "org.sonarlint.idea"                  # SonarQube for IDE
+    "izhangzhihao.rainbow.brackets"       # Rainbow Brackets
+    "PlantUML integration"                # PlantUML
+    "com.github.copilot"                  # GitHub Copilot
+    "com.anthropic.code.plugin"           # Claude Code
+    "com.mallowigi.idea"                  # Atom Material Icons
+)
+
+info "Installing IntelliJ IDEA plugins..."
+for plugin in "${plugins[@]}"; do
+    info "Installing plugin: $plugin"
+    "$IDEA_BIN" installPlugins "$plugin" 2>/dev/null && success "Installed $plugin" || warn "Failed to install $plugin"
+done

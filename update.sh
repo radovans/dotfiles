@@ -19,12 +19,13 @@ show_help() {
     echo -e "${CYAN}WHAT IT DOES:${NC}"
     echo "  1. Pulls latest changes from git"
     echo "  2. Re-applies shell config symlinks"
-    echo "  3. Re-applies git config symlinks"
-    echo "  4. Updates Claude marketplace skills"
-    echo "  5. Re-applies Claude settings symlink"
-    echo "  6. Re-applies Cursor settings symlinks"
-    echo "  7. Re-applies IntelliJ IDEA settings"
-    echo "  8. Runs brew bundle + upgrade + cleanup"
+    echo "  3. Updates Oh My Zsh"
+    echo "  4. Re-applies git config symlinks"
+    echo "  5. Updates Claude marketplace skills"
+    echo "  6. Re-applies Claude settings symlink"
+    echo "  7. Re-applies Cursor settings symlinks"
+    echo "  8. Re-applies IntelliJ IDEA settings"
+    echo "  9. Runs brew bundle + upgrade + cleanup"
     echo ""
 }
 
@@ -47,6 +48,10 @@ echo ""
 # Re-apply symlinks
 echo -e "${CYAN}━━━ Shell config ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 bash "$DOTFILES/scripts/shell.sh"
+echo ""
+
+echo -e "${CYAN}━━━ Oh My Zsh ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+bash "$DOTFILES/scripts/ohmyzsh.sh"
 echo ""
 
 echo -e "${CYAN}━━━ Git config ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"

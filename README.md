@@ -9,6 +9,8 @@ Personal Mac setup — everything needed to rebuild from scratch on a new machin
 | `macos/` | `Brewfile`, `defaults.sh` (system preferences) |
 | `shell/` | `.zshrc`, `aliases.sh`, `exports.sh` |
 | `git/` | `.gitconfig`, `.gitignore_global` |
+| `apps/ai/` | Shared MCP server config (`mcp.json`) |
+| `apps/claude/` | Claude Code settings, statusline script |
 | `apps/idea/` | IntelliJ IDEA file templates and live templates |
 | `scripts/` | Individual install steps |
 | `tools/` | Custom programs |
@@ -52,11 +54,13 @@ cd ~/Developer/personal/repo/dotfiles
 | 5 | `shell` | Shell config symlinks |
 | 6 | `git` | Git config + global gitignore |
 | 7 | `marketplace` | Claude skills marketplace |
-| 8 | `idea` | IntelliJ IDEA settings |
-| 9 | `macos` | macOS system defaults |
-| 10 | `node` | Node via nvm |
-| 11 | `dirs` | `~/Developer` folder structure |
-| 12 | `env` | `.env` file check |
+| 8 | `claude` | Claude Code settings + MCP servers |
+| 9 | `cursor` | Cursor MCP servers symlink |
+| 10 | `idea` | IntelliJ IDEA settings + plugins |
+| 11 | `macos` | macOS system defaults |
+| 12 | `node` | Node via nvm |
+| 13 | `dirs` | `~/Developer` folder structure |
+| 14 | `env` | `.env` file check |
 
 ## Keeping up to date
 
@@ -66,7 +70,7 @@ cd ~/Developer/personal/repo/dotfiles
 dotfiles-update
 ```
 
-Pulls latest changes and re-applies symlinks, marketplace skills, and Homebrew packages.
+Pulls latest changes and re-applies symlinks, updates Oh My Zsh, marketplace skills, and Homebrew packages.
 
 ## Manual steps (post-install)
 
@@ -100,6 +104,8 @@ dotfiles/
 │   ├── .gitconfig
 │   └── .gitignore_global
 ├── apps/
+│   ├── ai/                # Shared MCP config (Claude, Cursor)
+│   ├── claude/            # Claude Code settings + statusline
 │   └── idea/              # IntelliJ IDEA settings
 ├── scripts/
 └── tools/
